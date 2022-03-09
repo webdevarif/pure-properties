@@ -1,0 +1,410 @@
+/*----------------------------------------*/
+/*  01. Theme default CSS
+/*----------------------------------------*/
+
+@mixin placeholder {
+  &::-webkit-input-placeholder {@content}
+  &:-moz-placeholder           {@content}
+  &::-moz-placeholder          {@content}
+  &:-ms-input-placeholder      {@content}  
+}
+
+/*-- Google Font --*/
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
+
+/*-- Common Style --*/
+*, *::after, *::before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body{
+    font-size: 16px;
+    line-height: 1.75;
+    font-weight: 400;
+    font-family: $ff-primary;
+    color: $black;
+    outline: none;
+    visibility: visible;
+    overflow-X: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+
+    color: "";
+    &[dir="rtl"] {
+        text-align: right;
+    }
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--heading-ff, $ff-secondary);
+    color: $gray-800;
+    font-weight: 700;
+    margin-top: 0;
+    line-height: 1.5;
+    margin-bottom: 0;
+}
+
+h1{
+    font-size: var(--heading-fs, 36px);
+    // Responisve
+    @include media-breakpoint-up(lg){
+        --heading-fs: 50px;
+    }
+    @include media-breakpoint-down(sm){
+        --heading-fs: 25px;
+    }
+}
+h2{
+    font-size: 26px;
+    // Responisve
+    @include media-breakpoint-up(lg){
+        --heading-fs: 30px;
+    }
+}
+h3{
+    font-size: 20px;
+    // Responisve
+    @include media-breakpoint-up(lg){
+        --heading-fs: 24px;
+    }
+}
+h4 {
+    font-size: 21px;
+}
+h5 {
+    font-size: 19px;
+}
+h6 {
+    font-size: 14px;
+}
+p {
+    margin-bottom: 0;
+}
+a, button {
+    color: inherit;
+    display: inline-block;
+    line-height: inherit;
+    text-decoration: none;
+    cursor: pointer;
+}
+a, button, img, input {
+    transition: $transition-base;
+    outline: 0;
+
+    &:focus{
+        outline: 0;
+    }
+}
+
+a:focus {
+    color: none;
+    outline: none;
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: none;
+    color: $primary;
+}
+ul,ol{
+    padding: 0;
+    list-style: none;
+    margin: 0;
+}
+
+button, input[type="submit"] {
+    cursor: pointer;
+}
+img {
+    max-width: 100%;
+}
+
+input, textaArifArea {
+    @include placeholder {
+        opacity: 1;
+    }
+}
+
+/*-- Common Classes --*/
+.section, 
+.main-wrapper {
+    float: left;
+    width: 100%;
+}
+
+.main-wrapper {
+    overflow: hidden;
+}
+
+
+
+/*--Container--*/
+
+/*--Section Spacing--*/
+.section-padding {
+    --section-padding: 60px;
+    padding-top: var(--section-padding);
+    padding-bottom: var(--section-padding);
+
+    // Responsive
+    @include media-breakpoint-up(xl){
+        --section-padding: 120px;
+    }
+    @include media-breakpoint-between(md, xl){
+        --section-padding: 100px;
+    }
+    @include media-breakpoint-between(sm, md){
+        --section-padding: 80px;
+    }
+}
+.section-padding-02 {
+    --section-padding: 60px;
+    padding-top: var(--section-padding);
+    padding-bottom: var(--section-padding);
+
+    // Responsive
+    @include media-breakpoint-up(xl){
+        --section-padding: 80px;
+    }
+}
+
+.section-padding-xl {
+    --section-padding: 60px;
+    padding-top: var(--section-padding);
+    padding-bottom: var(--section-padding);
+
+    // Responsive
+    @include media-breakpoint-up(xl){
+        --section-padding: 150px;
+    }
+}
+
+/*--Section Title--*/
+.section-title{
+    .heading{
+        display: inline-block;
+        font-size: var(--section-title-fs, 30px);
+        line-height: var(--section-title-lh, 44px);
+        font-family: $ff-secondary;
+        font-weight: 700;
+        color: $primary;
+        position: relative;
+
+        @include media-breakpoint-up(xl){
+            --section-title-fs: 44px;
+            --section-title-lh: 64px;
+        }
+    }
+}
+
+
+/*--Swiper Pagination--*/
+.swiper-pagination{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    & .swiper-pagination-bullet {
+        border-radius: 50%;
+        background-color: #e1e1e1;
+        width: var(--swiper-pagination-bullet-size, 8px);
+        height: var(--swiper-pagination-bullet-size, 8px);
+        transition: $transition-base;
+        opacity: 1;
+          
+        &.swiper-pagination-bullet-active{
+            background-color: var(--pg-active-color, $primary);
+            --swiper-pagination-bullet-size: 13px;
+        }
+    }
+}
+
+.w-2{width: 2px !important}    
+.h-2{height: 2px !important;}
+
+
+.input-group{
+    input{
+        border-radius: 0;
+        border-top-left-radius: 0.5rem;
+        padding-left: 1.5rem;
+    }
+    .btn{
+        border-radius: 0;
+        border-bottom-right-radius: 0.5rem;
+    }
+}
+// CARD
+.card-body{
+    padding: 2rem;
+}
+
+
+
+.overflow-container {
+    overflow: hidden;
+    display: block;
+  }
+  
+  .overflow-container .overflow-inner {
+    -webkit-transform: translateY(100%);
+            transform: translateY(100%);
+    -webkit-transition-delay: 0.3s;
+    transition-delay: 0.3s;
+    display: block;
+  }
+  
+  .delay1 {
+    -webkit-animation-duration: 0.3s !important;
+            animation-duration: 0.3s !important;
+  }
+  
+  .delay2 {
+    -webkit-animation-duration: 0.5s !important;
+            animation-duration: 0.5s !important;
+  }
+  
+  .delay3 {
+    -webkit-animation-duration: 0.7s !important;
+            animation-duration: 0.7s !important;
+  }
+  
+  .delay4 {
+    -webkit-animation-duration: 0.9s !important;
+            animation-duration: 0.9s !important;
+  }
+  
+  .animation-delay1 {
+    -webkit-transition-delay: 0.3s !important;
+            transition-delay: 0.3s !important;
+  }
+  
+  .animation-delay2 {
+    -webkit-transition-delay: 0.5s !important;
+            transition-delay: 0.5s !important;
+  }
+  
+  .animation-delay3 {
+    -webkit-transition-delay: 0.7s !important;
+            transition-delay: 0.7s !important;
+  }
+  
+  .animation-delay4 {
+    -webkit-transition-delay: 0.9s !important;
+            transition-delay: 0.9s !important;
+  }
+  
+  .animation-delay5 {
+    -webkit-transition-delay: 1.1s !important;
+            transition-delay: 1.1s !important;
+  }
+  
+  .animation-delay6 {
+    -webkit-transition-delay: 1.3s !important;
+            transition-delay: 1.3s !important;
+  }
+  
+  .animation-delay7 {
+    -webkit-transition-delay: 1.5s !important;
+            transition-delay: 1.5s !important;
+  }
+  
+  .animation-delay8 {
+    -webkit-transition-delay: 1.7s !important;
+            transition-delay: 1.7s !important;
+  }
+  
+  .animation-delay9 {
+    -webkit-transition-delay: 1.9s !important;
+            transition-delay: 1.9s !important;
+  }
+
+
+  
+/* black overlay */
+[data-overlay] {
+    position: relative;
+    z-index: 1;
+  }
+  
+  [data-overlay]::before {
+    position: absolute;
+    content: '';
+    left: 0;
+    z-index: -1;
+    font-family: "Font Awesome 5 Pro";
+    top: 0;
+    background: $primary none repeat scroll 0 0;
+    width: 100%;
+    height: 100%;
+  }
+  
+  [data-overlay="3"]::before {
+    opacity: 0.3;
+    filter: alpha(opacity=30);
+  }
+  
+  [data-overlay="4"]::before {
+    opacity: 0.4;
+    filter: alpha(opacity=40);
+  }
+  
+  [data-overlay="5"]::before {
+    opacity: 0.5;
+    filter: alpha(opacity=50);
+  }
+  
+  [data-overlay="6"]::before {
+    opacity: 0.6;
+    filter: alpha(opacity=60);
+  }
+  
+  [data-overlay="7"]::before {
+    opacity: 0.7;
+    filter: alpha(opacity=70);
+  }
+  
+  [data-overlay="8"]::before {
+    opacity: 0.8;
+    filter: alpha(opacity=80);
+  }
+  
+  [data-overlay="9"]::before {
+    opacity: 0.9;
+    filter: alpha(opacity=90);
+  }
+  
+
+  .tl-before{
+      position: relative;
+      &:before{      
+        position: absolute;
+        left: -20px;
+        top: 17%;
+        height: 70%;
+        width: 1px;
+        content: "";
+        background: currentColor;
+    }
+  }
+
+  .form-select{
+     font-size: 20px;
+
+    &:after{
+        content: unset;
+    }
+
+    .list{
+        width: 100%;
+    }
+  }
+
+  .form-check-input:checked[type="radio"] + .form-check-label{
+    font-weight: 600;
+  }
+
+  .bg-light-200{
+    background: #E6E6E6 !important;
+  }

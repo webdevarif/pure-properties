@@ -1,0 +1,16 @@
+@each $name, $font in ( 'primary': $ff-primary, 'secondary': $ff-secondary, ) {
+    .ff-#{$name}{font-family: $font !important;}
+}
+
+@each $name, $size in (
+    'md': 16px,
+    'lg': 19px,
+    'xl': 21px,
+    '2xl': 25px,
+    '3xl': 30px,
+    '4xl': 43px,
+) {
+    .fs-#{$name}{
+        font-size: $size !important;
+    }
+}

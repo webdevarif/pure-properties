@@ -1,0 +1,24 @@
+.btn{
+    letter-spacing: 4px;
+}
+// SCROLL TOP BUTTON
+.scroll-top{
+    --icon-size: #{40px};
+    width: var(--icon-size);
+    height: var(--icon-size);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid rgba($white, 0.6);
+    position: fixed;
+    right: 1rem;
+    bottom: 1rem;
+    background: $primary;
+    color: rgba($white, 0.6);
+    z-index: 9999;
+
+    &:hover{
+        border-color: $white;
+        color:$white;
+    }
+}

@@ -1,0 +1,13 @@
+@font-face {
+    font-family: 'azo_sans';
+    src: url('AzoSans-Regular.woff2') format('woff2'),
+        url('AzoSans-Regular.woff') format('woff');
+    /* font-weight: normal;
+    font-style: normal;
+    font-display: swap; */
+}
+
+:root{
+    --ff-primary: 'azo_sans';
+}
+
